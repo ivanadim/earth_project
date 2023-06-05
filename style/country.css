@@ -1,0 +1,473 @@
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@200;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    overflow: hidden;
+}
+
+body {
+    background-color: #1a1a1e;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+svg path {
+    cursor: pointer;
+}
+
+svg path:hover {
+    fill: #3e8c5d;
+}
+
+#zoom {
+    width: 100%;
+    height: 100%;
+    transform-origin: 0px 0px;
+    transform: scale(1) translate(0px, 0px);
+    cursor: grab;
+
+    filter: blur(20px);
+}
+
+#name {
+    position: absolute;
+    display: flex;
+    background-color: white;
+    width: fit-content;
+    opacity: 0;
+    border-radius: 10px;
+    border: 3px solid #3e8c5d;
+    padding: 5px 10px;
+    font-size: 1.5rem;
+    z-index: 1000;
+}
+
+#results {
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    display: flex;
+}
+
+/* kopcinja od strana */
+#buttons-icons {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: fit-content;
+    margin: 3px;
+    gap: 15px;
+    padding: 10px;
+    order: 2;
+    background-color: #0a0a0aa8;
+    backdrop-filter: saturate(180%) blur(3px);
+    border-radius: 10px;
+}
+
+#buttons-icons .btn-compare {
+    position: absolute;
+    cursor: pointer;
+    top: 10px;
+    right: 10px;
+    width: 40px;
+}
+
+#buttons-icons .btn-compare:hover {
+    border-radius: 8px;
+    border: 1px solid #3e8c5d;
+
+}
+
+.reset-btn,
+.btn-compare {
+    display: contents;
+    cursor: pointer;
+}
+
+.reset-btn img,
+.btn-compare img {
+    width: 30px;
+    height: 30px;
+}
+
+/* info window */
+.countryWindow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 300px;
+    min-height: 400px;
+    background-color: #0a0a0aa8;
+    backdrop-filter: saturate(180%) blur(3px);
+    border-radius: 10px;
+    padding: 35px 0px 15px;
+    gap: 15px;
+    font-size: 1rem;
+    z-index: 1000;
+    right: 10px;
+    bottom: 10px;
+}
+
+#header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+#content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+/* saat */
+.clock-btn {
+    position: absolute;
+    width: 95%;
+    top: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #e0e0e0;
+    font-family: 'Arvo', serif;
+    font-weight: 400;
+
+}
+
+.clock-btn p {
+    padding-left: 25%;
+    font-size: 1rem;
+}
+
+.clock-btn img {
+    width: 25px;
+}
+
+/* slika zname */
+.image-country {
+    width: 250px;
+    height: 150px;
+    border-radius: 8px;
+}
+
+.image-country img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ime na zemja */
+.name-city-mob {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.coun-name {
+    background-color: #000000b3;
+    width: 70%;
+    border-radius: 8px;
+    border: 1px solid #3e8c5d24;
+    padding: 10px 20px;
+    text-align: center;
+    color: #3e8c5d;
+    font-size: 1rem;
+    box-shadow: rgb(114 114 114 / 11%) 0px 7px 29px 0px;
+    font-weight: bold;
+}
+
+/* grad na zemjata */
+.countryWindow .city {
+    width: 80%;
+    border-radius: 8px;
+    border-bottom: 1px solid #3e8c5d;
+    color: #121214;
+    padding: 0px 8px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.countryWindow .city h3 {
+    color: #9c9c9c;
+}
+
+.countryWindow .city span {
+    color: #e0e0e0;
+    /* font-family: 'Prompt', sans-serif; */
+    font-weight: 400;
+}
+
+
+/* informacii za zemjaata */
+.information {
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+    justify-content: space-between;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.info-dec,
+.info-dec-lang {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    gap: 10px;
+}
+
+.txt-decoration {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+}
+
+.countryWindow h4 {
+    color: #d1d1d1;
+    font-weight: 900;
+    font-family: 'Arvo', serif;
+    font-weight: 700;
+    font-size: 0.8rem;
+}
+
+.countryWindow h4 span {
+    color: #959595;
+    font-weight: 400;
+}
+
+.countryWindow a {
+    color: #3e8c5d;
+}
+
+/* mapi za zemjata */
+.infoMaps {
+    display: flex;
+    flex-direction: column;
+}
+
+.infoMaps h1 {
+    color: #d1d1d1;
+    text-align: center;
+    font-size: 0.8rem;
+    font-family: 'Arvo', serif;
+    font-weight: 400;
+}
+
+.countryWindow .icons-maps-google a {
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.icons-maps-google {
+    display: flex;
+    color: #e0e0e0;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 10px;
+}
+
+#google-map {
+    width: 30px;
+    display: none;
+}
+
+
+
+/* drugata zemja sto se bira */
+.countryWindow .selectCountry {
+    display: flex;
+    justify-content: space-evenly;
+    width: 80%;
+    height: 100%;
+    align-items: center;
+}
+
+.countryWindow .selectCountry p {
+    text-align: center;
+    color: #e0e0e0;
+    font-size: 1rem;
+}
+
+
+
+.fade-out-text {
+    position: absolute;
+    top: 40%;
+    right: 40%;
+    color: #3e8c5d;
+    font-size: 1.3rem;
+    z-index: 1000;
+}
+
+
+
+.loading-text {
+    position: absolute;
+    top: 50%;
+    right: 45%;
+    color: #02cf54;
+    font-size: 2rem;
+    font-family: 'Prompt', sans-serif;
+    font-weight: 900;
+    z-index: 1000;
+    animation: hideAnimation 0s ease-in 2s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes hideAnimation {
+    to {
+        visibility: hidden;
+    }
+}
+
+
+
+
+
+/* mobile version */
+
+@media screen and (max-width: 760px) {
+    #name {
+        display: none;
+    }
+
+    #namep {
+        display: none;
+    }
+
+    .countryWindow {
+        width: 90%;
+        min-width: 260px;
+        min-height: 130px;
+        flex-direction: row;
+    }
+
+    #header {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        width: 50%;
+    }
+
+    #content {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        width: 50%;
+    }
+
+    .image-country {
+        width: 110px;
+        height: 70px;
+    }
+
+    .coun-name {
+        padding: 5px 10px;
+        font-size: 0.6rem;
+    }
+
+    .city h3 {
+        display: none;
+    }
+
+    .info-dec,
+    .info-dec-lang {
+        font-size: 0.8rem;
+        gap: 5px;
+    }
+
+    .countryWindow .city {
+        width: fit-content;
+    }
+
+    .clock-btn {
+        left: 10px;
+    }
+
+    .clock-btn p {
+        font-size: 0.8rem;
+        padding-left: 50%;
+    }
+
+    .information {
+        width: 100%;
+    }
+
+    .btn-compare img,
+    .reset-btn img {
+        width: 25px;
+        height: 25px;
+    }
+
+    .countryWindow .city {
+        justify-content: space-between;
+        font-size: 0.8rem;
+    }
+
+    .countryWindow h4 span {
+        font-size: 0.8rem;
+    }
+
+    .txt-decoration {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .infoMaps {
+        flex-direction: row;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .infoMaps h1 {
+        display: none;
+    }
+
+    .icons-maps-google p {
+        font-size: 0.8rem;
+    }
+
+    #google-map {
+        display: block;
+        width: 23px;
+    }
+
+    .icons-maps-google {
+        gap: 25px;
+    }
+
+    .icons-maps-google p {
+        display: none;
+    }
+
+    #results {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        left: 15px;
+    }
+
+    #buttons-icons {
+        flex-direction: row-reverse;
+        gap: 35px;
+    }
+}

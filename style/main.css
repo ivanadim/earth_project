@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@200;300;400;500;700;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    overflow: hidden;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    background-color: black;
+}
+
+video {
+    width: 400px;
+    margin-bottom: 3rem;
+}
+
+.videoContainer {
+    margin: auto;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+button {
+    background-color: #0a0a0aa8;
+    box-shadow: 0 0px 10px #464646;
+    color: #e0e0e0;
+    padding: 10px 20px;
+    backdrop-filter: saturate(180%) blur(3px);
+    border-radius: 8px;
+    border: none;
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+    font-family: 'Prompt', sans-serif;
+    font-weight: 700;
+    /* transition-duration: 0.4s; */
+    overflow: hidden;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #e0e0e0;
+    box-shadow: 0 0px 10px #464646;
+    color: #1a1a1a;
+}
+
+
+/* country icons */
+.hide {
+    display: none;
+}
+
+.show {
+    display: flex;
+}
+
+@media screen and (max-width: 760px) {
+    video {
+        width: 300px;
+
+
+    }
+
+    button {
+        font-size: 1rem;
+
+    }
+}
